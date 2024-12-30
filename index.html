@@ -79,15 +79,6 @@
             overflow-y: auto;
         }
 
-        #outputList {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-            color: #333;
-        }
-
         .reset-button {
             background-color: #ff5733;
             margin-top: 10px;
@@ -108,9 +99,7 @@
         <button onclick="acakList()">Acak Daftar</button>
 
         <h2>Hasil Pengacakan:</h2>
-        <div id="outputBox">
-            <ul id="outputList"></ul>
-        </div>
+        <textarea id="outputBox" readonly></textarea>
         
         <button class="reset-button" onclick="resetForm()">Reset Form</button>
     </div>
@@ -128,18 +117,15 @@
                 [list[i], list[j]] = [list[j], list[i]]; // Tukar elemen
             }
 
-            // Tampilkan hasil dalam bentuk list
-            var outputDiv = document.getElementById('outputList');
-            outputDiv.innerHTML = ''; // Bersihkan output sebelumnya
-            list.forEach(function(item) {
-                outputDiv.innerHTML += '<li>' + item + '</li>';
-            });
+            // Menampilkan hasil dalam format list di dalam output textarea
+            var outputDiv = document.getElementById('outputBox');
+            outputDiv.value = list.join('\n'); // Gabungkan elemen dengan baris baru
         }
 
         // Fungsi untuk mereset form dan output
         function resetForm() {
             document.getElementById('inputList').value = ''; // Kosongkan input
-            document.getElementById('outputList').innerHTML = ''; // Kosongkan output
+            document.getElementById('outputBox').value = ''; // Kosongkan output
         }
     </script>
 
