@@ -119,7 +119,15 @@
 
             // Menampilkan hasil dalam format list yang juga diacak
             var outputDiv = document.getElementById('outputBox');
-            outputDiv.value = list.join('\n'); // Gabungkan elemen dengan baris baru
+            
+            // Acak ulang list hasil output
+            for (let i = list.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [list[i], list[j]] = [list[j], list[i]]; // Tukar elemen hasil output
+            }
+            
+            // Gabungkan elemen dengan baris baru untuk hasil output
+            outputDiv.value = list.join('\n');
         }
 
         // Fungsi untuk mereset form dan output
