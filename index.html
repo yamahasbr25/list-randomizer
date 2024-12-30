@@ -105,7 +105,7 @@
     </div>
 
     <script>
-        // Fungsi untuk mengacak daftar
+        // Fungsi untuk mengacak array
         function acakList() {
             // Ambil input dari textarea dan pisahkan berdasarkan koma
             var input = document.getElementById('inputList').value;
@@ -117,7 +117,7 @@
                 [list[i], list[j]] = [list[j], list[i]]; // Tukar elemen
             }
 
-            // Menampilkan hasil dalam format list di dalam output textarea
+            // Menampilkan hasil dalam format list yang juga diacak
             var outputDiv = document.getElementById('outputBox');
             outputDiv.value = list.join('\n'); // Gabungkan elemen dengan baris baru
         }
